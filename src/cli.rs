@@ -2,7 +2,7 @@ use clap::{Parser, Subcommand};
 use std::path::PathBuf;
 
 #[derive(Parser)]
-#[command(name = "init-ai")]
+#[command(name = "initai")]
 #[command(about = "AI 팀 협업 규칙 파일을 프로젝트에 추가하는 CLI 도구", long_about = None)]
 pub struct Cli {
     #[command(subcommand)]

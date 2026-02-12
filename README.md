@@ -1,4 +1,4 @@
-# init-ai
+# initai
 
 > AI 팀 협업 규칙 파일을 프로젝트에 손쉽게 추가하는 CLI 도구
 
@@ -22,9 +22,9 @@
 
 ## 소개
 
-`init-ai`는 AI 기반 개발 팀 협업을 위한 규칙 파일(`TEAM_RULES.md`)을 프로젝트에 자동으로 생성해주는 CLI 도구입니다. 여러 템플릿 중 선택하거나 커스텀 템플릿을 추가하여 프로젝트에 맞는 팀 규칙을 손쉽게 적용할 수 있습니다.
+`initai`는 AI 기반 개발 팀 협업을 위한 규칙 파일(`TEAM_RULES.md`)을 프로젝트에 자동으로 생성해주는 CLI 도구입니다. 여러 템플릿 중 선택하거나 커스텀 템플릿을 추가하여 프로젝트에 맞는 팀 규칙을 손쉽게 적용할 수 있습니다.
 
-### 왜 init-ai를 사용해야 하나요?
+### 왜 initai를 사용해야 하나요?
 
 - ✅ **빠른 프로젝트 설정**: 몇 초 만에 AI 팀 규칙 파일 생성
 - ✅ **템플릿 관리**: 여러 템플릿을 저장하고 관리
@@ -58,12 +58,12 @@
 
 ```bash
 # 저장소 클론
-git clone https://github.com/yourusername/init-ai.git
-cd init-ai
+git clone https://github.com/yourusername/initai.git
+cd initai
 
 # 빌드 및 설치
 cargo build --release
-sudo cp target/release/init-ai /usr/local/bin/
+sudo cp target/release/initai /usr/local/bin/
 
 # 또는 cargo install 사용
 cargo install --path .
@@ -71,18 +71,18 @@ cargo install --path .
 
 ### 방법 2: 바이너리 다운로드
 
-[Releases 페이지](https://github.com/yourusername/init-ai/releases)에서 플랫폼에 맞는 바이너리를 다운로드하세요.
+[Releases 페이지](https://github.com/yourusername/initai/releases)에서 플랫폼에 맞는 바이너리를 다운로드하세요.
 
 ```bash
 # macOS/Linux
-chmod +x init-ai
-sudo mv init-ai /usr/local/bin/
+chmod +x initai
+sudo mv initai /usr/local/bin/
 ```
 
 ### 설치 확인
 
 ```bash
-init-ai --help
+initai --help
 ```
 
 ---
@@ -94,12 +94,21 @@ init-ai --help
 처음 실행 시 템플릿 저장 경로를 설정합니다:
 
 ```bash
-init-ai config --set-template-path ~/.config/init-ai/templates
+initai config --set-template-path ~/.config/initai/templates
 ```
+
+> 💡 **경로는 자유롭게 선택 가능합니다!**
+> - `~/.config/initai/templates` - 표준 설정 위치 (권장)
+> - `~/Documents/templates` - 찾기 쉬운 위치
+> - `~/Dropbox/ai-templates` - 클라우드 동기화
+> - `/opt/company/templates` - 팀 공유 경로
+> - `./templates` - 현재 프로젝트 내 (상대 경로)
+>
+> 어떤 경로든 지정 가능하며, 나중에 언제든 변경할 수 있습니다.
 
 **결과**:
 ```
-✓ 템플릿 저장 경로가 설정되었습니다: "/Users/user/.config/init-ai/templates"
+✓ 템플릿 저장 경로가 설정되었습니다: "/Users/user/.config/initai/templates"
 ✓ 기본 템플릿 'Programming-Team'이(가) 설치되었습니다.
 ```
 
@@ -109,10 +118,10 @@ init-ai config --set-template-path ~/.config/init-ai/templates
 
 ```bash
 # 방법 1: 대화형 모드
-init-ai
+initai
 
 # 방법 2: 직접 템플릿 지정
-init-ai init Programming-Team
+initai init Programming-Team
 ```
 
 **결과**:
@@ -133,15 +142,15 @@ your-project/
 
 ### 대화형 모드
 
-`init-ai`를 인수 없이 실행하면 대화형 모드가 시작됩니다:
+`initai`를 인수 없이 실행하면 대화형 모드가 시작됩니다:
 
 ```bash
-init-ai
+initai
 ```
 
 **진행 과정**:
 ```
-=== init-ai 대화형 모드 ===
+=== initai 대화형 모드 ===
 
 사용 가능한 템플릿:
   1. Programming-Team
@@ -157,13 +166,13 @@ init-ai
 
 ```bash
 # 특정 템플릿으로 초기화
-init-ai init Programming-Team
+initai init Programming-Team
 
 # 템플릿 목록 보기
-init-ai list
+initai list
 
 # 도움말
-init-ai --help
+initai --help
 ```
 
 ---
@@ -173,9 +182,9 @@ init-ai --help
 ### 템플릿 목록 조회
 
 ```bash
-init-ai list
+initai list
 # 또는
-init-ai ls
+initai ls
 ```
 
 **출력 예시**:
@@ -192,10 +201,10 @@ init-ai ls
 
 ```bash
 # 파일 이름으로 자동 설정
-init-ai template install ~/Documents/my-rules.md
+initai template install ~/Documents/my-rules.md
 
 # 커스텀 이름 지정
-init-ai template install ~/Documents/my-rules.md --name MyCustomTemplate
+initai template install ~/Documents/my-rules.md --name MyCustomTemplate
 ```
 
 **결과**:
@@ -206,9 +215,9 @@ init-ai template install ~/Documents/my-rules.md --name MyCustomTemplate
 ### 템플릿 삭제
 
 ```bash
-init-ai template remove MyCustomTemplate
+initai template remove MyCustomTemplate
 # 또는
-init-ai template rm MyCustomTemplate
+initai template rm MyCustomTemplate
 ```
 
 **확인 프롬프트**:
@@ -219,23 +228,45 @@ init-ai template rm MyCustomTemplate
 
 ### 템플릿 저장 경로 변경
 
+언제든지 템플릿 저장 경로를 변경할 수 있습니다:
+
 ```bash
-init-ai config --set-template-path /path/to/templates
+# 원하는 경로로 변경
+initai config --set-template-path /path/to/templates
+
+# 예시: 홈 디렉토리 하위로 변경
+initai config --set-template-path ~/my-templates
+
+# 예시: 절대 경로
+initai config --set-template-path /Users/username/Documents/ai-rules
+
+# 예시: 상대 경로 (현재 디렉토리 기준)
+initai config --set-template-path ./project-templates
 ```
+
+**경로 선택 가이드**:
+
+| 경로 타입 | 예시 | 장점 | 추천 대상 |
+|----------|------|------|----------|
+| 표준 설정 | `~/.config/initai/templates` | 시스템 표준, 깔끔함 | 개인 사용자 |
+| 홈 디렉토리 | `~/Documents/templates` | 찾기 쉬움, 백업 용이 | 초보자 |
+| 클라우드 동기화 | `~/Dropbox/ai-templates` | 여러 PC 동기화 | 멀티 디바이스 사용자 |
+| 시스템 전역 | `/opt/company/templates` | 팀원 전체 공유 | 서버/팀 환경 |
+| 프로젝트 내 | `./templates` | Git으로 버전 관리 | 프로젝트별 관리 |
 
 ---
 
 ## 명령어 레퍼런스
 
-### `init-ai`
+### `initai`
 대화형 모드 시작
 
-### `init-ai list` / `init-ai ls`
+### `initai list` / `initai ls`
 설치된 모든 템플릿 목록 표시
 
 **옵션**: 없음
 
-### `init-ai init [템플릿명]`
+### `initai init [템플릿명]`
 프로젝트 초기화 (rules/TEAM_RULES.md 생성)
 
 **인수**:
@@ -246,12 +277,12 @@ init-ai config --set-template-path /path/to/templates
 
 **예시**:
 ```bash
-init-ai init                        # 대화형 선택
-init-ai init Programming-Team       # 직접 지정
-init-ai init --template MyTemplate  # 플래그 사용
+initai init                        # 대화형 선택
+initai init Programming-Team       # 직접 지정
+initai init --template MyTemplate  # 플래그 사용
 ```
 
-### `init-ai template install <파일경로> [옵션]`
+### `initai template install <파일경로> [옵션]`
 새 템플릿 설치
 
 **인수**:
@@ -262,8 +293,8 @@ init-ai init --template MyTemplate  # 플래그 사용
 
 **예시**:
 ```bash
-init-ai template install ~/rules.md
-init-ai template install ~/rules.md --name CustomRules
+initai template install ~/rules.md
+initai template install ~/rules.md --name CustomRules
 ```
 
 **제약사항**:
@@ -271,7 +302,7 @@ init-ai template install ~/rules.md --name CustomRules
 - 최대 파일 크기: 10MB
 - 심볼릭 링크 불가
 
-### `init-ai template remove <템플릿명>` / `init-ai template rm <템플릿명>`
+### `initai template remove <템플릿명>` / `initai template rm <템플릿명>`
 템플릿 삭제
 
 **인수**:
@@ -279,10 +310,10 @@ init-ai template install ~/rules.md --name CustomRules
 
 **예시**:
 ```bash
-init-ai template remove OldTemplate
+initai template remove OldTemplate
 ```
 
-### `init-ai config --set-template-path <경로>`
+### `initai config --set-template-path <경로>`
 템플릿 저장 경로 설정
 
 **옵션**:
@@ -290,10 +321,10 @@ init-ai template remove OldTemplate
 
 **예시**:
 ```bash
-init-ai config --set-template-path ~/.init-ai/templates
+initai config --set-template-path ~/.initai/templates
 ```
 
-### `init-ai --help` / `init-ai -h`
+### `initai --help` / `initai -h`
 도움말 표시
 
 ---
@@ -307,7 +338,7 @@ init-ai config --set-template-path ~/.init-ai/templates
 cd my-new-project
 
 # 대화형 모드로 템플릿 선택 및 생성
-init-ai
+initai
 ```
 
 ### 시나리오 2: 커스텀 팀 규칙 템플릿 만들기
@@ -317,14 +348,14 @@ init-ai
 vim ~/my-team-rules.md
 
 # 2. 템플릿으로 설치
-init-ai template install ~/my-team-rules.md --name MyTeamRules
+initai template install ~/my-team-rules.md --name MyTeamRules
 
 # 3. 확인
-init-ai list
+initai list
 
 # 4. 새 프로젝트에 적용
 cd another-project
-init-ai init MyTeamRules
+initai init MyTeamRules
 ```
 
 ### 시나리오 3: CI/CD 스크립트에서 자동화
@@ -338,7 +369,7 @@ git init
 echo "# My Project" > README.md
 
 # AI 팀 규칙 자동 추가
-init-ai init Programming-Team
+initai init Programming-Team
 
 # Git 커밋
 git add .
@@ -349,13 +380,13 @@ git commit -m "Initial commit with team rules"
 
 ```bash
 # 다양한 템플릿 설치
-init-ai template install ~/templates/frontend-team.md --name Frontend
-init-ai template install ~/templates/backend-team.md --name Backend
-init-ai template install ~/templates/fullstack-team.md --name FullStack
+initai template install ~/templates/frontend-team.md --name Frontend
+initai template install ~/templates/backend-team.md --name Backend
+initai template install ~/templates/fullstack-team.md --name FullStack
 
 # 프로젝트 유형에 따라 선택
-cd frontend-project && init-ai init Frontend
-cd ../backend-project && init-ai init Backend
+cd frontend-project && initai init Frontend
+cd ../backend-project && initai init Backend
 ```
 
 ---
@@ -386,7 +417,7 @@ cargo clippy
 ### 프로젝트 구조
 
 ```
-init-ai/
+initai/
 ├── src/
 │   ├── main.rs          # 진입점
 │   ├── cli.rs           # CLI 정의
@@ -419,13 +450,13 @@ anyhow = "1.0"        # 에러 처리
 
 ### 위치
 
-- **macOS/Linux**: `~/.config/init-ai/config.toml`
-- **Windows**: `%APPDATA%\init-ai\config.toml`
+- **macOS/Linux**: `~/.config/initai/config.toml`
+- **Windows**: `%APPDATA%\initai\config.toml`
 
 ### 형식
 
 ```toml
-template_path = "/Users/user/.config/init-ai/templates"
+template_path = "/Users/user/.config/initai/templates"
 default_template = "Programming-Team"
 ```
 
@@ -434,7 +465,7 @@ default_template = "Programming-Team"
 설정 파일을 직접 수정할 수도 있습니다:
 
 ```bash
-vim ~/.config/init-ai/config.toml
+vim ~/.config/initai/config.toml
 ```
 
 ---
@@ -445,10 +476,10 @@ vim ~/.config/init-ai/config.toml
 
 ```bash
 # 템플릿 경로 확인
-cat ~/.config/init-ai/config.toml
+cat ~/.config/initai/config.toml
 
 # 템플릿 디렉토리 확인
-ls -la ~/.config/init-ai/templates/
+ls -la ~/.config/initai/templates/
 ```
 
 ### "설정 파일이 존재하지 않습니다" 오류
@@ -456,7 +487,7 @@ ls -la ~/.config/init-ai/templates/
 최초 설정이 필요합니다:
 
 ```bash
-init-ai config --set-template-path ~/.config/init-ai/templates
+initai config --set-template-path ~/.config/initai/templates
 ```
 
 ### 파일 덮어쓰기 확인
@@ -495,7 +526,7 @@ rules/TEAM_RULES.md 파일이 이미 존재합니다. 덮어쓰시겠습니까? 
 
 ## 지원
 
-- **이슈**: [GitHub Issues](https://github.com/yourusername/init-ai/issues)
+- **이슈**: [GitHub Issues](https://github.com/yourusername/initai/issues)
 - **문서**: [docs/](docs/) 디렉토리
 - **이메일**: your.email@example.com
 
@@ -513,4 +544,4 @@ rules/TEAM_RULES.md 파일이 이미 존재합니다. 덮어쓰시겠습니까? 
 
 ---
 
-Made with ❤️ by the init-ai team
+Made with ❤️ by the initai team

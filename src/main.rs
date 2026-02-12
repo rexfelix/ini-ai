@@ -49,7 +49,7 @@ fn run() -> Result<()> {
             if let Some(path) = set_template_path {
                 handle_config_set_path(path)?;
             } else {
-                println!("{}", "사용법: init-ai config --set-template-path <경로>".yellow());
+                println!("{}", "사용법: initai config --set-template-path <경로>".yellow());
             }
         }
     }
@@ -67,7 +67,7 @@ fn handle_list() -> Result<()> {
             "{} 사용 가능한 템플릿이 없습니다.",
             "⚠️".yellow()
         );
-        println!("'init-ai template install' 명령으로 템플릿을 추가하세요.");
+        println!("'initai template install' 명령으로 템플릿을 추가하세요.");
     } else {
         println!("{}", "사용 가능한 템플릿:".cyan());
         for (i, template) in templates.iter().enumerate() {

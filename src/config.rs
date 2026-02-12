@@ -23,7 +23,7 @@ pub fn get_config_path() -> Result<PathBuf> {
     let config_dir = dirs::config_dir()
         .context("설정 디렉토리를 찾을 수 없습니다")?;
 
-    let init_ai_dir = config_dir.join("init-ai");
+    let init_ai_dir = config_dir.join("initai");
 
     // 디렉토리가 없으면 생성
     if !init_ai_dir.exists() {

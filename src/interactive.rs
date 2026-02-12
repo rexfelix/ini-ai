@@ -9,7 +9,7 @@ use crate::template;
 
 /// 대화형 모드 실행
 pub fn run_interactive_mode() -> Result<()> {
-    println!("{}", "=== init-ai 대화형 모드 ===".cyan().bold());
+    println!("{}", "=== initai 대화형 모드 ===".cyan().bold());
     println!();
 
     // 설정 파일 확인
@@ -49,7 +49,7 @@ pub fn run_interactive_mode() -> Result<()> {
 fn setup_template_path() -> Result<Config> {
     let default_path = dirs::config_dir()
         .context("설정 디렉토리를 찾을 수 없습니다")?
-        .join("init-ai")
+        .join("initai")
         .join("templates");
 
     let path_str: String = Input::new()
@@ -81,7 +81,7 @@ fn prompt_template_selection(config: &Config) -> Result<String> {
     let templates = template::list_templates(config)?;
 
     if templates.is_empty() {
-        anyhow::bail!("사용 가능한 템플릿이 없습니다. 'init-ai template install' 명령으로 템플릿을 추가하세요.");
+        anyhow::bail!("사용 가능한 템플릿이 없습니다. 'initai template install' 명령으로 템플릿을 추가하세요.");
     }
 
     println!("{}", "사용 가능한 템플릿:".cyan());
