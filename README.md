@@ -140,6 +140,8 @@ your-project/
 
 ## 사용법
 
+`initai`는 인터랙티브(대화형) 모드를 사용할 수 있습니다.
+
 ### 대화형 모드
 
 `initai`를 인수 없이 실행하면 대화형 모드가 시작됩니다:
@@ -500,47 +502,9 @@ rules/TEAM_RULES.md 파일이 이미 존재합니다. 덮어쓰시겠습니까? 
 
 ---
 
-## 기여하기
-
-기여를 환영합니다! 다음 단계를 따라주세요:
-
-1. 저장소 포크
-2. 기능 브랜치 생성 (`git checkout -b feature/amazing-feature`)
-3. 변경사항 커밋 (`git commit -m 'Add amazing feature'`)
-4. 브랜치 푸시 (`git push origin feature/amazing-feature`)
-5. Pull Request 생성
-
-### 코드 스타일
-
-- Rust 표준 포맷팅 사용 (`cargo fmt`)
-- Clippy 경고 없음 (`cargo clippy`)
-- 모든 테스트 통과 (`cargo test`)
-
----
-
 ## 라이선스
 
 이 프로젝트는 MIT 라이선스 하에 배포됩니다. 자세한 내용은 [LICENSE](LICENSE) 파일을 참조하세요.
-
----
-
-## 지원
-
-- **이슈**: [GitHub Issues](https://github.com/yourusername/initai/issues)
-- **문서**: [docs/](docs/) 디렉토리
-- **이메일**: your.email@example.com
-
----
-
-## 감사의 말
-
-이 프로젝트는 다음 오픈소스 프로젝트를 사용합니다:
-
-- [clap](https://github.com/clap-rs/clap) - CLI 파싱
-- [dialoguer](https://github.com/console-rs/dialoguer) - 대화형 프롬프트
-- [dirs](https://github.com/dirs-dev/dirs-rs) - 플랫폼별 디렉토리
-- [serde](https://github.com/serde-rs/serde) - 직렬화
-- [colored](https://github.com/colored-rs/colored) - 터미널 색상
 
 ---
 
